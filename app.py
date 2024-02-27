@@ -277,6 +277,6 @@ def remove_hospital(center_id):
         cur.close()
         return jsonify({'success': False, 'message': 'Hospital not found'})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
 # 12345
