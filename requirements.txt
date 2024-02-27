@@ -6,3 +6,5 @@ flask_mysqldb
 flask_bcrypt
 datetime
 dotenv
+setuptools>=57.0.0
+wheel>=0.36.2
