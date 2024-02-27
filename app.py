@@ -3,13 +3,17 @@ from flask_login import  LoginManager,UserMixin, login_user,login_required,logou
 from flask_mysqldb import  MySQL
 from flask_bcrypt import  Bcrypt
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # take environment variables from .env.
 
 app = Flask( __name__ )
 app.secret_key='mysecretkey'
 
 app.config['MYSQL_HOST'] = "localhost"
 app.config['MYSQL_USER'] = "root"
-app.config['MYSQL_PASSWORD'] = "Athang33!"
+app.config['MYSQL_PASSWORD'] = os.getenv("PASSWORD")
 app.config['MYSQL_DB'] = "flask_db"
 
 mysql = MySQL(app)
@@ -88,6 +92,7 @@ def userlogin():
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        print(os.getenv("PASSWORD"))
         name = request.form['name']
         email = request.form['email']
         password = request.form['password']
